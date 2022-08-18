@@ -10,8 +10,10 @@ const wrapper = document.querySelector(".wrapper"),
     nextBtn = wrapper.querySelector("#next"),
     mainAudio = wrapper.querySelector("#main-audio"),
     progressArea = wrapper.querySelector(".progress-area"),
-    progressBar = progressArea.querySelector(".progress-bar");
-
+    progressBar = progressArea.querySelector(".progress-bar"),
+    list_btn =  wrapper.querySelector(".fi-sr-list").parentElement,
+    player = document.querySelector(".player"),
+    list_items = document.querySelector(".song-List");
     let musicIndex = Math.floor((Math.random() * allMusic.length)+1);
     isMusicPaused = true;
 
@@ -109,3 +111,13 @@ const wrapper = document.querySelector(".wrapper"),
     });
 
  //       <!-- made by Islam Tafesh +970592584234-->
+
+
+
+ /*   Here the code of the list of music    */
+
+    list_btn.addEventListener("click", ()=>{
+        player.classList.toggle('hidden-song-List');
+        wrapper.classList.toggle('min_height_wrapper');
+        list_items.classList.toggle('add_mr_1'); 
+    });

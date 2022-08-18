@@ -78,13 +78,13 @@ body {
 }
 
 .wrapper {
-    max-width: 900px;
+    max-width: 600px;
     min-height: 100vh;
     max-height: 100%;
     text-align: center;
     padding: 2rem;
-    margin: 0 auto;
     overflow: hidden;
+
 }
 /*       <!-- made by Islam Tafesh +970592584234-->*/
 header,
@@ -135,6 +135,131 @@ img {
     box-shadow: var(--box-shadow03);
     animation: rotation 8s infinite linear;
     transform-origin: center;
+}
+
+.song {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 98%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.253);
+    cursor: pointer;
+
+}
+
+.song .song-played {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.song .song-played i {
+    font-size: 20px;
+    font-weight: 200;
+    color: rgba(126, 126, 126, 0.479);
+    padding: 8px;
+    margin: 10px 20px;
+    cursor: pointer;
+}
+
+.song .song-played.played i{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 200;
+    color: rgba(223, 31, 31, 0.781);
+    margin: 10px 20px;
+    border: 1px solid #A7A9AB;
+    padding: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+
+}
+
+
+.song-List {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 10px;
+    transition: all 0.5s ease;
+    width: 100%;
+}
+
+.hidden-song-List {
+    display: none;
+    height: min-content;
+    min-height: min-content;
+}
+
+
+.wrapper {
+    width: 100%;
+}
+
+.min_height_wrapper{
+    min-height: min-content;
+    max-width: none;
+    position: fixed;
+    box-shadow: 0px 3px 20px 20px #000000b5;
+    border-bottom: 3px solid rgba(255, 255, 255, 0.164);
+    background: #1a1d20;
+    top: 0;
+    left: 0;
+}
+
+
+.add_mr_1 {
+    margin-top: 140px;
+}
+
+.song-List .song {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+}
+
+.song-List .song .song-info{
+    display: flex;
+    flex-direction: row;
+    margin: 10px 10px ;
+}
+
+.song-photo img {
+    width: 3.5rem;
+    height: 3.5rem;
+    box-shadow: none;
+    animation: none;
+    border: 5px solid #e1520a67;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    margin-right: 10px;
+
+}
+
+.song-information {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.song-information .song-name{
+    font-size: 20px;
+    color: #A7A9AB;
+}
+
+.song-information .song-artist{
+    font-size: 16px;
+    color: #7c7d80;
+
 }
 /*       <!-- made by Islam Tafesh +970592584234-->*/
 .name {
@@ -303,3 +428,23 @@ img {
     
 }
 /*       <!-- made by Islam Tafesh +970592584234-->*/
+
+
+
+@media (min-width:10px) {
+    .wrapper {
+        max-width: 1000px;
+    }
+}
+
+@media (min-width:1000px) {
+    body {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    .wrapper {
+        max-width: none;
+    }
+}
