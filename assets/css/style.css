@@ -190,11 +190,13 @@ img {
     width: 100%;
 }
 
-.hidden-song-List {
+.hidden-player {
     display: none;
     height: min-content;
     min-height: min-content;
 }
+
+
 
 
 .wrapper {
@@ -435,6 +437,12 @@ img {
     .wrapper {
         max-width: 1000px;
     }
+
+    .hidden-song-List {
+        display: none;
+        height: min-content;
+        min-height: min-content;
+    }
 }
 
 @media (min-width:1000px) {
@@ -446,5 +454,11 @@ img {
     }
     .wrapper {
         max-width: none;
+    }
+
+    .hidden-song-List {
+        display: flex;
+        height: min-content;
+        min-height: min-content;
     }
 }

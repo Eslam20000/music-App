@@ -117,7 +117,8 @@ const wrapper = document.querySelector(".wrapper"),
  /*   Here the code of the list of music    */
 
     list_btn.addEventListener("click", ()=>{
-        player.classList.toggle('hidden-song-List');
+        player.classList.toggle('hidden-player');
         wrapper.classList.toggle('min_height_wrapper');
-        list_items.classList.toggle('add_mr_1'); 
+        list_items.classList.toggle('add_mr_1');
+        list_items.classList.toggle('hidden-song-List');
     });
