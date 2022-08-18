@@ -13,7 +13,8 @@ const wrapper = document.querySelector(".wrapper"),
     progressBar = progressArea.querySelector(".progress-bar"),
     list_btn =  wrapper.querySelector(".fi-sr-list").parentElement,
     player = document.querySelector(".player"),
-    list_items = document.querySelector(".song-List");
+    list_items = document.querySelector(".song-List"),
+    songs = list_items.querySelectorAll('.song');
     let musicIndex = Math.floor((Math.random() * allMusic.length)+1);
     isMusicPaused = true;
 
@@ -122,3 +123,15 @@ const wrapper = document.querySelector(".wrapper"),
         list_items.classList.toggle('add_mr_1');
         list_items.classList.toggle('hidden-song-List');
     });
+
+    for (let i = 0; i < songs.length; i++) {
+        songs[i].addEventListener("click", function() {
+            musicIndex=i+1;
+            loadMusic(musicIndex);
+            playMusic();
+            for (let j = 0; j < songs.length; j++) {
+                songs[j].querySelector(".song-played").classList.remove("played");
+            }
+            songs[i].querySelector(".song-played").classList.add("played")
+        });
+    }
