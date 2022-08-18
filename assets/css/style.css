@@ -185,7 +185,7 @@ img {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    margin: 10px;
+    margin: 10px 0px;
     transition: all 0.5s ease;
     width: 98%;
 }
@@ -222,7 +222,7 @@ img {
 .song-List .song {
     display: flex;
     flex-direction: row;
-    margin: 10px;
+    margin: 10px auto;
 }
 
 .song-List .song .song-info{
