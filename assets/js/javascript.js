@@ -159,6 +159,10 @@ const wrapper = document.querySelector(".wrapper"),
                     myDocument.webkitRequestFullscreen();
                 }
     
+                if (screen.orientation && screen.orientation.lock) {
+                    screen.orientation.lock('landscape');
+                  }
+                  
                 btn_fullScreen_clicked = true;
             }
             else{
