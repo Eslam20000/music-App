@@ -156,7 +156,7 @@ const wrapper = document.querySelector(".wrapper"),
             else if(myDocument.webkitRequestFullscreen) {
                 myDocument.webkitRequestFullscreen();
             }
-
+ 
             btn_fullScreen_clicked = true;
         }
         else{
@@ -176,3 +176,4 @@ const wrapper = document.querySelector(".wrapper"),
 
         }
     });
+    
