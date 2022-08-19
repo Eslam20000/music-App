@@ -159,7 +159,7 @@ const wrapper = document.querySelector(".wrapper"),
                     myDocument.webkitRequestFullscreen();
                 }
     
-                screen.orientation.lock("portrait");
+                screen.orientation.lock('portrait-primary');
 
                 btn_fullScreen_clicked = true;
             }
@@ -177,8 +177,13 @@ const wrapper = document.querySelector(".wrapper"),
                     document.webkitexitFullscreen();
                 }
                 btn_fullScreen_clicked = false;
-                screen.orientation.lock("portrait"); 
+                screen.orientation.lock('portrait-primary');
+
 
             }
         });
+
+        screen.addEventListener("orientationchange", () => {
+            console.log(`The orientation of the screen is: ${screen.orientation}`);
+          });
     
