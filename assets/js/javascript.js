@@ -159,7 +159,7 @@ const wrapper = document.querySelector(".wrapper"),
                     myDocument.webkitRequestFullscreen();
                 }
     
-                    screen.orientation.lock('landscape');
+                screen.orientation.lock("landscape");
 
                 btn_fullScreen_clicked = true;
             }
@@ -177,6 +177,7 @@ const wrapper = document.querySelector(".wrapper"),
                     document.webkitexitFullscreen();
                 }
                 btn_fullScreen_clicked = false;
+                screen.orientation.lock("portrait"); 
 
             }
         });
