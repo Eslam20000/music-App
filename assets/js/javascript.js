@@ -139,11 +139,40 @@ const wrapper = document.querySelector(".wrapper"),
 
     /* Here the code of make full screen when click at full screen btn */
 
-    var goFS = document.getElementById('goFS');
-    goFS.addEventListener(
-      'click',
-      function () {
-        document.body.requestFullscreen();
-      },
-      false,
-    );
+    let myDocument = document.documentElement;
+    let btn = document.getElementById("full_sec");
+    var btn_fullScreen_clicked=false;
+    btn.addEventListener("click", ()=>{
+        if(!btn_fullScreen_clicked){
+            if (myDocument.requestFullscreen) {
+                myDocument.requestFullscreen();
+            } 
+            else if (myDocument.msRequestFullscreen) {
+                myDocument.msRequestFullscreen();
+            } 
+            else if (myDocument.mozRequestFullScreen) {
+                myDocument.mozRequestFullScreen();
+            }
+            else if(myDocument.webkitRequestFullscreen) {
+                myDocument.webkitRequestFullscreen();
+            }
+
+            btn_fullScreen_clicked = true;
+        }
+        else{
+            if(document.exitFullscreen) {
+                document.exitFullscreen();
+            }
+            else if(document.msexitFullscreen) {
+                document.msexitFullscreen();
+            }
+            else if(document.mozexitFullscreen) {
+                document.mozexitFullscreen();
+            }
+            else if(document.webkitexitFullscreen) {
+                document.webkitexitFullscreen();
+            }
+            btn_fullScreen_clicked = false;
+
+        }
+    });
