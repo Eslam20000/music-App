@@ -162,7 +162,7 @@ const wrapper = document.querySelector(".wrapper"),
                     song_played();
         });
     }
-
+ 
     function add_color_box_grid_item () {
         
         for (var i = 0; i < box_grid_item_color.length; ++i) {
