@@ -1,6 +1,17 @@
  //       <!-- made by Islam Tafesh +970592584234-->
 
-let allMusic =[
+let allMusic = [];
+
+
+let Action =[
+
+    
+    
+];
+
+
+
+let Motivation =[
     {
         name:"Different World",
         artist: "Alan Walker",
@@ -9,4 +20,33 @@ let allMusic =[
     }   
     
     
-]
+];
+
+let Sad =[
+
+    
+];
+
+let Love =[
+
+    
+];
+
+let Vocal =[
+
+    
+    
+];
+
+let Gaming =[
+
+    
+];
+
+let category_mods = {
+    'Action':Action,
+    'Motivation':Motivation,
+    'Sad':Sad,
+    'Love':Love,
+    'Vocal':Vocal,
+    'Gaming':Gaming};

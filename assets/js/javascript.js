@@ -1,6 +1,5 @@
  //       <!-- made by Islam Tafesh +970592584234-->
-
-
+ allMusic = Motivation;
 const wrapper = document.querySelector(".wrapper"),
     musicImg = wrapper.querySelector("img"),
     musicName = wrapper.querySelector(".name"),
@@ -14,9 +13,14 @@ const wrapper = document.querySelector(".wrapper"),
     list_btn =  wrapper.querySelector(".fi-sr-list").parentElement,
     player = document.querySelector(".player"),
     list_items = document.querySelector(".song-List"),
-    songs = list_items.querySelectorAll('.song');
+    title_page = wrapper.querySelector('.p-now'),
+    img_area_player = wrapper.querySelector('.img-area').querySelector('img');
     let musicIndex = Math.floor((Math.random() * allMusic.length)+1);
     isMusicPaused = true;
+
+    var songs = list_items.querySelectorAll('.song');
+    var box_grid_item_color = document.querySelectorAll('.box-grid-item-color');
+    const song_list_item = document.querySelector('.song-list-item');
 
     window.addEventListener("load",()=>{
         loadMusic(musicIndex);
@@ -116,13 +120,101 @@ const wrapper = document.querySelector(".wrapper"),
 
 
  /*   Here the code of the list of music    */
+    
+    Category_clicked = false;
 
     list_btn.addEventListener("click", ()=>{
         player.classList.toggle('hidden-player');
         wrapper.classList.toggle('min_height_wrapper');
         list_items.classList.toggle('add_mr_1');
         list_items.classList.toggle('hidden-song-List');
+
+        if(!Category_clicked){
+            title_page.innerText = "Select Mode";
+            Category_clicked = true;
+        }else {
+            title_page.innerText = "Playing now";
+            Category_clicked = false;
+        }
+
     });
+
+
+    /* Here the list of the color for the category*/
+    var grid_colors = [
+     '#dc3545','#0d6efd','#0dcaf0','#d63384','#fd7e14',
+     '#6f42c1','#198754','#20c997','#ffc107'
+    ];
+
+    
+    for (let ii = 0; ii < box_grid_item_color.length ; ii++) {
+        box_grid_item_color[ii].style.color = grid_colors[ii];
+        box_grid_item_color[ii].style.borderColor = grid_colors[ii];
+    }
+
+    for (let box_grid_item = 0; box_grid_item < box_grid_item_color.length ; box_grid_item++) {
+        box_grid_item_color[box_grid_item].addEventListener("click", function() {
+
+                    allMusic=category_mods[box_grid_item_color[box_grid_item].id];
+                    clear_list_items();
+                    fetch_all_music();
+                    songs = list_items.querySelectorAll('.song');
+                    song_played();
+        });
+    }
+
+    function add_color_box_grid_item () {
+        
+        for (var i = 0; i < box_grid_item_color.length; ++i) {
+            box_grid_item_color[i].style.color = grid_colors[i];
+            box_grid_item_color[i].style.borderColor = grid_colors[i];
+          }
+
+    }
+
+    function clear_list_items () {
+        song_list_item.innerHTML='';
+    }
+
+
+    function fetch_all_music (){
+
+        for (var song_item = 0 ; song_item < allMusic.length ; ++song_item){
+        
+        let name = allMusic[song_item].name;
+        let artist = musicArtist.innerText = allMusic[song_item].artist;
+        let src = allMusic[song_item].src;
+
+        var Song = `<div class="song">
+                <div class="song-info">
+                    <div class="song-photo">
+                        <img src="./assets/images/${src}.jpg" alt="">
+                    </div>
+                    <div class="song-information">
+                        <div class="song-name">
+                            ${name}
+                        </div>
+                        <div class="song-artist">
+                            ${artist}
+                        </div>
+                    </div>
+                </div>
+                <div class="song-played">
+                    <i class="fi fi-sr-play"></i>
+                </div>
+            </div>`;
+
+            song_list_item.insertAdjacentHTML(
+                'beforeend',
+                Song
+              );
+
+        }
+    }
+
+
+function song_played (){
+
 
     for (let i = 0; i < songs.length; i++) {
         songs[i].addEventListener("click", function() {
@@ -135,7 +227,9 @@ const wrapper = document.querySelector(".wrapper"),
             songs[i].querySelector(".song-played").classList.add("played")
         });
     }
+}
 
+song_played();
 
     /* Here the code of make full screen when click at full screen btn */
 
@@ -161,6 +255,8 @@ const wrapper = document.querySelector(".wrapper"),
     
                 screen.orientation.lock('portrait-primary');
 
+                img_area_player.style.maxWidth  = '50vh';
+
                 btn_fullScreen_clicked = true;
             }
             else{
@@ -178,6 +274,8 @@ const wrapper = document.querySelector(".wrapper"),
                 }
                 btn_fullScreen_clicked = false;
                 screen.orientation.lock('portrait-primary');
+
+                img_area_player.style.maxWidth  = null;
 
 
             }

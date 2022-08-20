@@ -124,10 +124,10 @@ header h3 {
 }
 
 img {
-    width: 18rem;
-    height: 18rem;
-    max-width: 240px;
-    max-height: 240px;
+    width: 75vw;
+    height: 100%;
+    max-width: 75vw;
+    max-height: 100%;
     margin-bottom: 1rem;
     object-fit: cover;
     border: 10px solid var(--border02);
@@ -137,12 +137,75 @@ img {
     transform-origin: center;
 }
 
+.Category {
+    width: 98%;
+    height: 98%;
+}
+
+.grid {
+    display: grid;
+    justify-content: center;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, 90%);
+  }
+
+
+  @media(min-width:320px) {
+    .grid {
+        grid-template-columns: repeat(auto-fit, 40%);
+    }
+  }
+
+  @media(min-width:768px) {
+    .grid {
+        grid-template-columns: repeat(auto-fit, 30%);
+    }
+  }
+
+
+  @media(min-width:1024px) {
+    .grid {
+        grid-template-columns: repeat(auto-fit, 25%);
+    }
+  }
+
+  @media(min-width:1300px) {
+    .grid {
+        grid-template-columns: repeat(auto-fit, 20%);
+    }
+  }
+
+  .grid>* {
+    background-color: green;
+    height: 130px;
+    display: flex;
+    text-align: center;
+    vertical-align: baseline;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .box-grid-item-color {
+    background: var(--bg02);
+    box-shadow: var(--box-shadow01);
+    border-radius: 10px;
+    font-size: 24px;
+    border: 1px solid #d94545eb;
+    color: #d94545eb;
+    transition: all 0.15s ease;
+  }
+
+  .box-grid-item-color:active {
+    box-shadow: var(--box-shadow02);
+    }
+
 .song {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 98%;
+    width: 100%;
     border-bottom: 1px solid rgba(255, 255, 255, 0.253);
     cursor: pointer;
 
@@ -461,10 +524,31 @@ img {
         height: min-content;
         min-height: min-content;
     }
+
+    img {
+        max-width: 240px;
+    }
 }
 
-@media only screen and (orientation:landscape) {
-    body {
-      transform: rotate-(90deg);
-    }
+.song-list-item {
+    width: 100%;
+}
+
+.img-area img:fullscreen {
+        max-width: 75vw;
+  }
+  
+  .img-area img:-webkit-full-screen {
+    max-width: 75vw;
+
+  }
+  
+  .img-area img:-moz-full-screen {
+    max-width: 75vw;
+
+  }
+  
+  .img-area img:-ms-fullscreen {
+    max-width: 75vw;
+
   }
