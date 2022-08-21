@@ -82,8 +82,11 @@ body {
     min-height: 100vh;
     max-height: 100%;
     text-align: center;
-    padding: 2rem;
+    padding: 25px 2rem;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
 }
 /*       <!-- made by Islam Tafesh +970592584234-->*/
@@ -120,7 +123,7 @@ header h3 {
 }
 
 .player {
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
 
 img {
@@ -308,6 +311,10 @@ img {
 
 }
 
+.img-area {
+    padding-top: 25px;
+}
+
 .song-information {
     display: flex;
     flex-direction: column;
@@ -410,6 +417,11 @@ img {
     pointer-events: none;
     transform: translateY(-50%);
     transition: all 0.2s ease;
+}
+
+.section_1{
+    background: #ffffff21;
+    border-radius: 10px;
 }
 
 .controls {

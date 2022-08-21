@@ -11,7 +11,7 @@ const wrapper = document.querySelector(".wrapper"),
     progressArea = wrapper.querySelector(".progress-area"),
     progressBar = progressArea.querySelector(".progress-bar"),
     list_btn =  wrapper.querySelector(".fi-sr-list").parentElement,
-    player = document.querySelector(".player"),
+    player = document.querySelectorAll(".player"),
     list_items = document.querySelector(".song-List"),
     title_page = wrapper.querySelector('.p-now'),
     img_area_player = wrapper.querySelector('.img-area').querySelector('img');
@@ -124,7 +124,9 @@ const wrapper = document.querySelector(".wrapper"),
     Category_clicked = false;
 
     list_btn.addEventListener("click", ()=>{
-        player.classList.toggle('hidden-player');
+        for (let player_num = 0; player_num < player.length; player_num++) {
+            player[player_num].classList.toggle('hidden-player');
+        }
         wrapper.classList.toggle('min_height_wrapper');
         list_items.classList.toggle('add_mr_1');
         list_items.classList.toggle('hidden-song-List');
@@ -255,7 +257,7 @@ song_played();
     
                 screen.orientation.lock('portrait-primary');
 
-                img_area_player.style.maxWidth  = '50vh';
+                img_area_player.style.maxWidth  = '40vh';
 
                 btn_fullScreen_clicked = true;
             }
