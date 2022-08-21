@@ -20,6 +20,7 @@ const wrapper = document.querySelector(".wrapper"),
 
     var songs = list_items.querySelectorAll('.song');
     var box_grid_item_color = document.querySelectorAll('.box-grid-item-color');
+    var grid_div = document.querySelector('.grid');
     const song_list_item = document.querySelector('.song-list-item');
 
     window.addEventListener("load",()=>{
@@ -156,7 +157,11 @@ const wrapper = document.querySelector(".wrapper"),
 
     for (let box_grid_item = 0; box_grid_item < box_grid_item_color.length ; box_grid_item++) {
         box_grid_item_color[box_grid_item].addEventListener("click", function() {
-
+                    for(let box_grid_item_hide = 0 ; box_grid_item_hide<box_grid_item_color.length ; box_grid_item_hide++)
+                    box_grid_item_color[box_grid_item_hide].classList.toggle('box-grid-item-color-hide');
+                    
+                    box_grid_item_color[box_grid_item].classList.toggle('box-grid-item-color-hide');
+                    grid_div.classList.toggle('grid-hide')
                     allMusic=category_mods[box_grid_item_color[box_grid_item].id];
                     clear_list_items();
                     fetch_all_music();
