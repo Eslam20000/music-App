@@ -74,6 +74,7 @@
 
 html {
     height: 98%;
+    background: #191b1e;
 }
 
 body {
@@ -112,8 +113,8 @@ header .hdbtn {
     background: var(--bg02);
     border: 2px solid var(--border01);
     box-shadow: var(--box-shadow01);
-    width: 65px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     line-height: 52px;
     color: #86898c;
     font-size: 22px;
@@ -646,3 +647,28 @@ img {
     max-width: 75vw;
 
   }
+
+    
+  @media (max-width:767px) {
+    .Category:first-child .grid {
+        padding-top: 10%;
+    }
+
+    .Category:first-child .grid.grid-hide{
+        padding-top: 0px;
+    }
+    
+  }
+
+  @media (max-width:400px) {
+    .Category:first-child .grid {
+        padding-top: 10%;
+    }
+
+    
+    .Category:first-child .grid.grid-hide{
+        padding-top: 0px;
+    }
+    
+  } 
+
