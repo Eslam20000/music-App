@@ -72,9 +72,18 @@
     outline: none;  
 }
 
+html {
+    height: 98%;
+}
+
 body {
     font-family: 'Lato', sans-serif;
     background: var(--bg01);
+    height: 100%;
+}
+
+.min_height_wrapper header .p-now.hide {
+    display: none;
 }
 
 .wrapper {
@@ -103,8 +112,8 @@ header .hdbtn {
     background: var(--bg02);
     border: 2px solid var(--border01);
     box-shadow: var(--box-shadow01);
-    width: 52px;
-    height: 52px;
+    width: 65px;
+    height: 60px;
     line-height: 52px;
     color: #86898c;
     font-size: 22px;
@@ -146,7 +155,6 @@ img {
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 98%;
 }
 
 .grid {
@@ -157,6 +165,7 @@ img {
     align-items: center;
     width: 95%;
     text-align: center;
+    height: 100%;
   }
 
 
@@ -164,24 +173,32 @@ img {
     .grid {
         grid-template-columns: repeat(auto-fit, 40%);
     }
+
+    .grid.title_grid_choose {
+        grid-template-columns: 90%;
+    }
   }
 
   @media(min-width:768px) {
     .grid {
         grid-template-columns: repeat(auto-fit, 30%);
     }
+    
+    .grid.title_grid_choose {
+        grid-template-columns: 30%;
+    }
   }
 
 
   @media(min-width:1024px) {
     .grid {
-        grid-template-columns: repeat(auto-fit, 25%);
+        grid-template-columns: repeat(auto-fit, 30%);
     }
   }
 
   @media(min-width:1300px) {
     .grid {
-        grid-template-columns: repeat(auto-fit, 20%);
+        grid-template-columns: repeat(auto-fit, 25%);
     }
   }
 
@@ -191,13 +208,18 @@ img {
 
   .grid>* {
     background-color: green;
-    height: 130px;
     display: flex;
+    height: 40px;
     text-align: center;
     vertical-align: baseline;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+  }
+
+
+  .Category:first-child .grid button {
+    height: 130px;
   }
 
   .box-grid-item-color {
@@ -213,11 +235,46 @@ img {
   .box-grid-item-color-hide {
     display: none;
   }
+
+  .grid-hide .box-grid-item-color-hide-2 {
+    display: none;
+  }
+
+  .hidden-song-List .Category .grid button.box-grid-item-color-hide-2 {
+    display: flex;
+  }
   
 
   .box-grid-item-color:active {
     box-shadow: var(--box-shadow02);
     }
+
+    .box-grid-item-color-2 {
+        background: var(--bg02);
+        box-shadow: var(--box-shadow01);
+        border-radius: 10px;
+        font-size: 24px;
+        border: 1px solid #d94545eb;
+        color: #d94545eb;
+        transition: all 0.15s ease;
+      }
+
+      .wrapper header .Category {
+        display: none;
+      }
+
+      .min_height_wrapper header .Category {
+        display: none;
+      }
+
+      .min_height_wrapper header .Category.hide {
+        display: flex;
+      }
+
+    
+      .box-grid-item-color-2:active {
+        box-shadow: var(--box-shadow02);
+        }   
 
 .song {
     display: flex;
@@ -271,6 +328,7 @@ img {
     transition: all 0.5s ease;
     width: 100%;
     padding: 25px 0px;
+    height: 100% !important;
 }
 
 .hidden-player {
@@ -298,9 +356,7 @@ img {
 }
 
 
-.add_mr_1 {
-    margin-top: 140px;
-}
+
 
 .song-List .song {
     display: flex;
@@ -564,6 +620,8 @@ img {
 
 .song-list-item {
     width: 100%;
+    height: 100%;
+    overflow-y: scroll;
 }
 
 .song-list-item.hide {

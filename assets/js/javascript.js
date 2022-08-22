@@ -20,8 +20,11 @@ const wrapper = document.querySelector(".wrapper"),
 
     var songs = list_items.querySelectorAll('.song');
     var box_grid_item_color = document.querySelectorAll('.box-grid-item-color');
-    var grid_div = document.querySelector('.grid');
+    var grid_div = document.querySelectorAll('.grid');
     const song_list_item = document.querySelector('.song-list-item');
+    var Choosen_cat = document.querySelector('#Choosen_cat');
+
+    var add_mar = document.querySelector('.song-List');
 
     window.addEventListener("load",()=>{
         loadMusic(musicIndex);
@@ -139,6 +142,23 @@ const wrapper = document.querySelector(".wrapper"),
             title_page.innerText = "Playing now";
             Category_clicked = false;
         }
+        
+        if(add_mar.style.paddingTop=="140px"){
+            add_mar.style.paddingTop="0px";
+        }
+        else{
+            add_mar.style.paddingTop="140px";
+        }
+
+        if(song_list_item.classList.contains('hide')){
+            add_mar.style.paddingTop="0px";
+
+        }else if(add_mar.classList.contains('hidden-song-List')){
+            add_mar.style.paddingTop="0px";
+        }else {
+            add_mar.style.paddingTop="140px";
+        }
+
 
     });
 
@@ -155,23 +175,63 @@ const wrapper = document.querySelector(".wrapper"),
         box_grid_item_color[ii].style.borderColor = grid_colors[ii];
     }
 
+
+
+
     for (let box_grid_item = 0; box_grid_item < box_grid_item_color.length ; box_grid_item++) {
+
         box_grid_item_color[box_grid_item].addEventListener("click", function() {
                     for(let box_grid_item_hide = 0 ; box_grid_item_hide<box_grid_item_color.length ; box_grid_item_hide++)
                     box_grid_item_color[box_grid_item_hide].classList.toggle('box-grid-item-color-hide');
                     
-                    song_list_item.classList.toggle('hide');
 
-                    box_grid_item_color[box_grid_item].classList.toggle('box-grid-item-color-hide');
-                    grid_div.classList.toggle('grid-hide')
+                    for(let grid_item_hide_2 = 0 ; grid_item_hide_2 < box_grid_item_color.length ; grid_item_hide_2++){
+                        if(box_grid_item_color[grid_item_hide_2].classList.contains('box-grid-item-color-hide-2')){
+                            box_grid_item_color[grid_item_hide_2].classList.remove('box-grid-item-color-hide-2');
+                        }
+                    }
+
+                    if(screen.width > 1024){
+                    box_grid_item_color[box_grid_item].classList.toggle('box-grid-item-color-hide-2');
+
+                    }
+
+                    song_list_item.classList.toggle('hide');
+                    title_page.classList.toggle('hide');
+
+                    Choosen_cat.innerHTML=box_grid_item_color[box_grid_item].innerHTML;
+                    Choosen_cat.style.color = box_grid_item_color[box_grid_item].style.color;
+                    Choosen_cat.style.borderColor = box_grid_item_color[box_grid_item].style.borderColor;
+
+                    Choosen_cat.parentElement.parentElement.classList.toggle('hide');
+                    grid_div[1].classList.toggle('grid-hide');
                     allMusic=category_mods[box_grid_item_color[box_grid_item].id];
                     clear_list_items();
                     fetch_all_music();
                     songs = list_items.querySelectorAll('.song');
                     song_played();
                     check_is_song_played_now();
+
+                    if(add_mar.classList.contains('hidden-song-List')){
+                        add_mar.style.paddingTop="0px";
+                        
+                    }
+                    else{
+                        add_mar.style.paddingTop="140px";
+                    }
         });
     }
+
+    Choosen_cat.addEventListener('click',function(){
+        title_page.classList.toggle('hide');
+        Choosen_cat.parentElement.parentElement.classList.toggle('hide');
+        for(let box_grid_item_hide = 0 ; box_grid_item_hide<box_grid_item_color.length ; box_grid_item_hide++)
+        box_grid_item_color[box_grid_item_hide].classList.toggle('box-grid-item-color-hide');
+        grid_div[1].classList.toggle('grid-hide');
+        song_list_item.classList.toggle('hide');
+        clear_list_items();
+        add_mar.style.paddingTop="0px";
+    });
  
     function add_color_box_grid_item () {
         
