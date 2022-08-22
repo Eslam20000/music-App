@@ -167,6 +167,7 @@ const wrapper = document.querySelector(".wrapper"),
                     fetch_all_music();
                     songs = list_items.querySelectorAll('.song');
                     song_played();
+                    check_is_song_played_now();
         });
     }
  
@@ -191,8 +192,30 @@ const wrapper = document.querySelector(".wrapper"),
         let name = allMusic[song_item].name;
         let artist = musicArtist.innerText = allMusic[song_item].artist;
         let src = allMusic[song_item].src;
-
-        var Song = `<div class="song">
+            var name_of_music_for_now = wrapper.querySelector(".name");
+            var Song='';
+        if(name == name_of_music_for_now.innerText){
+             Song = `<div class="song">
+                    <div class="song-info">
+                        <div class="song-photo">
+                            <img src="./assets/images/${src}.jpg" alt="">
+                        </div>
+                        <div class="song-information">
+                            <div class="song-name">
+                                ${name}
+                            </div>
+                            <div class="song-artist">
+                                ${artist}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="song-played played">
+                        <i class="fi fi-sr-play"></i>
+                    </div>
+                </div>`;
+        }
+        else {
+             Song = `<div class="song">
                 <div class="song-info">
                     <div class="song-photo">
                         <img src="./assets/images/${src}.jpg" alt="">
@@ -210,6 +233,9 @@ const wrapper = document.querySelector(".wrapper"),
                     <i class="fi fi-sr-play"></i>
                 </div>
             </div>`;
+        }
+
+        
 
             song_list_item.insertAdjacentHTML(
                 'beforeend',
@@ -234,6 +260,10 @@ function song_played (){
             songs[i].querySelector(".song-played").classList.add("played")
         });
     }
+}
+
+function check_is_song_played_now () {
+
 }
 
 song_played();

@@ -263,6 +263,7 @@ img {
     margin: 10px 0px;
     transition: all 0.5s ease;
     width: 98%;
+    padding: 25px 0px;
 }
 
 .hidden-player {
@@ -428,10 +429,7 @@ img {
     transition: all 0.2s ease;
 }
 
-.section_1{
-    background: #ffffff21;
-    border-radius: 10px;
-}
+
 
 .controls {
     margin: 30px 8px 5px 8px;
@@ -534,7 +532,6 @@ img {
         display: flex;
         flex-direction: row;
         justify-content: center;
-        align-items: center;
     }
     .wrapper {
         max-width: none;
@@ -548,6 +545,11 @@ img {
 
     img {
         max-width: 240px;
+    }
+
+    .section_1 {
+        background: rgba(255, 255, 255, 0.13);
+        border-radius: 10px;
     }
 }
 
