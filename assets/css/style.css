@@ -651,7 +651,7 @@ img {
     
   @media (max-width:767px) {
     .Category:first-child .grid {
-        padding-top: 10%;
+        padding-top: 20%;
     }
 
     .Category:first-child .grid.grid-hide{
@@ -662,7 +662,7 @@ img {
 
   @media (max-width:400px) {
     .Category:first-child .grid {
-        padding-top: 10%;
+        padding-top: 20%;
     }
 
     
