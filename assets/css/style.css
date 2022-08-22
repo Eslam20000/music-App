@@ -178,6 +178,9 @@ img {
     .grid.title_grid_choose {
         grid-template-columns: 90%;
     }
+    .Category:first-child.hide {
+        width: 60%;
+    }
   }
 
   @media(min-width:768px) {
@@ -188,6 +191,11 @@ img {
     .grid.title_grid_choose {
         grid-template-columns: 30%;
     }
+
+    .Category:first-child.hide {
+        width: 60%;
+    }
+
   }
 
 
@@ -657,6 +665,10 @@ img {
     .Category:first-child .grid.grid-hide{
         padding-top: 0px;
     }
+
+    .Category.hide{
+        width: 60%;
+    }
     
   }
 
@@ -668,6 +680,10 @@ img {
     
     .Category:first-child .grid.grid-hide{
         padding-top: 0px;
+    }
+    
+    .Category.hide{
+        width: 60%;
     }
     
   } 
