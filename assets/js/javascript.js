@@ -160,6 +160,8 @@ const wrapper = document.querySelector(".wrapper"),
                     for(let box_grid_item_hide = 0 ; box_grid_item_hide<box_grid_item_color.length ; box_grid_item_hide++)
                     box_grid_item_color[box_grid_item_hide].classList.toggle('box-grid-item-color-hide');
                     
+                    song_list_item.classList.toggle('hide');
+
                     box_grid_item_color[box_grid_item].classList.toggle('box-grid-item-color-hide');
                     grid_div.classList.toggle('grid-hide')
                     allMusic=category_mods[box_grid_item_color[box_grid_item].id];

@@ -314,6 +314,8 @@ img {
     margin: 10px 10px ;
 }
 
+
+
 .song-photo img {
     width: 3.5rem;
     height: 3.5rem;
@@ -562,6 +564,10 @@ img {
 
 .song-list-item {
     width: 100%;
+}
+
+.song-list-item.hide {
+    display: none;
 }
 
 .img-area img:fullscreen {
